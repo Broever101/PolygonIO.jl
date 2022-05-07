@@ -94,3 +94,21 @@ forex_snapshot_ticker_base_url = "https://api.polygon.io/v2/snapshot/locale/glob
 forex_snapshot_all_tickers_base_url = "https://api.polygon.io/v2/snapshot/locale/global/markets/forex/tickers"
 
 forex_snapshot_gainers_losers_base_url = "https://api.polygon.io/v2/snapshot/locale/global/markets/forex"
+
+
+## Options API ##
+options_aggregates_base_url = "https://api.polygon.io/v2/aggs/ticker"
+
+options_daily_open_close_base_url = "https://api.polygon.io/v1/open-close"
+
+options_previous_close_base_url = "https://api.polygon.io/v2/aggs/ticker"
+
+options_trades_base_url = "https://api.polygon.io/v3/trades"
+
+options_last_trade_base_url = "https://api.polygon.io/v2/last/trade"
+
+options_quotes_base_url = "https://api.polygon.io/v3/quotes"
+
+options_snapshot_option_contract_base_url = "https://api.polygon.io/v3/snapshot/options"
+
+options_contracts_base_url = "https://api.polygon.io/v3/reference/options/contracts"

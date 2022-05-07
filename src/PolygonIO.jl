@@ -15,6 +15,7 @@ include("forex_api.jl")
 include("reference_api.jl")
 include("stocks_api.jl")
 include("streaming_socket.jl")
+include("options_api.jl")
 
 
 
@@ -40,7 +41,9 @@ export PolyOpts, tickers, ticker_types, ticker_details, ticker_details_vX,
     # Forex API
         historic_forex_ticks, real_time_currency_conversion, last_quote_currency_pair,
         forex_grouped_daily_bars, forex_previous_close, forex_aggregates_bars,
-        forex_snapshot_ticker, forex_snapshot_all_tickers, forex_snapshot_gainers_losers
+        forex_snapshot_ticker, forex_snapshot_all_tickers, forex_snapshot_gainers_losers,
 
-
+    # Options API
+        options_aggregates, options_daily_open_close, options_previous_close, options_trade,
+        options_last_trade, options_quotes, options_snapshot_option_contract, options_contracts
 end
