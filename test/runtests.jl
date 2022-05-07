@@ -91,9 +91,9 @@ end
     @test stocks_last_quote_symbol(regular_opts, "AAPL") |> length >= 1
     @test stocks_last_quote_symbol(tabular_opts, "AAPL") |> length == 1
 
-    # daily_open_close test
-    @test stocks_daily_open_close(tabular_opts, "AAPL", "2020-10-14") |> length == 1
-    @test stocks_daily_open_close(regular_opts, "AAPL", "2020-10-14") |> length >= 10
+   # daily_open_close test
+   @test stocks_daily_open_close(tabular_opts, "AAPL", "2020-10-14") |> length == 1
+   @test stocks_daily_open_close(regular_opts, "AAPL", "2020-10-14") |> length >= 10
 
     # grouped_daily_bars test
     @test stocks_grouped_daily_bars(tabular_opts, "2020-10-14"; adjusted=true) |> length >= 8000
@@ -200,4 +200,38 @@ end
     # forex_snapshot_gainers_losers test
     @test forex_snapshot_gainers_losers(regular_opts, "gainers") |> length >= 1
     @test forex_snapshot_gainers_losers(tabular_opts, "losers") |> length >= 1
+end
+
+@testset "Options API" begin 
+    # options_aggregates test
+    @test options_aggregates(regular_opts, "O:TSLA210903C00700000", 1, "day", "2021-07-22", "2021-07-22") |> length >= 1
+    @test options_aggregates(tabular_opts, "O:TSLA210903C00700000", 1, "day", "2021-07-22", "2021-07-22") |> length >= 1
+
+    # options_daily_open_close test
+    @test options_daily_open_close(regular_opts, "O:TSLA210903C00700000", "2021-07-22") |> length >= 1
+    @test options_daily_open_close(tabular_opts, "O:TSLA210903C00700000", "2021-07-22") |> length >= 1
+
+    # options_previous_close test
+    @test options_previous_close(regular_opts, "O:TSLA210903C00700000") |> length >= 1
+    @test options_previous_close(tabular_opts, "O:TSLA210903C00700000") |> length >= 1
+
+    # options_trade test
+    @test options_trade(regular_opts, "O:TSLA210903C00700000") |> length >= 1
+    @test options_trade(tabular_opts, "O:TSLA210903C00700000") |> length >= 1
+   
+    # options_last_trade test 
+    @test options_last_trade(regular_opts, "O:TSLA210903C00700000") |> length >= 1
+    @test options_last_trade(tabular_opts, "O:TSLA210903C00700000") |> length >= 1
+
+    # options_quotes test
+    @test options_quotes(regular_opts,"O:TSLA210903C00700000") |> length >= 1
+    @test options_quotes(tabular_opts,"O:TSLA210903C00700000") |> length >= 1
+
+    # options_snapshot_option_contract test
+    @test options_snapshot_option_contract(regular_opts, "AAPL", "O:AAPL230616C00150000") |> length >= 1
+    @test options_snapshot_option_contract(tabular_opts, "AAPL", "O:AAPL230616C00150000") |> length >= 1
+
+    # options_contracts test
+    @test options_contracts(regular_opts, "O:EVRI240119C00002500") |> length >= 1
+    @test options_contracts(tabular_opts, "O:EVRI240119C00002500") |> length >= 1
 end
